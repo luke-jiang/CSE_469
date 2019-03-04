@@ -3,7 +3,7 @@
 // Chen Bai, Luke Jiang
 // 11/08/2018
 
-// ALU flag register. 
+// ALU flag register.
 // [negative, zero, overflow, carry_out] [3:0]
 // lessthanF is true if A < B, where A, B are two inputs to ALU.
 
@@ -18,7 +18,7 @@ module regflag (out, lessThanF, in, reset, clk, en);
   genvar i;
   generate
     for(i = 0; i < 4; i++) begin: enDff
-      enable_D_FF enDffs(.q(out[i]), .d(in[i]), .reset, .clk, .en);
+      enable_D_FF enDffs (.q(out[i]), .d(in[i]), .reset, .clk, .en);
     end
   endgenerate
   xor (lessThanF, out[1], out[3]);
@@ -50,4 +50,3 @@ module regflag_testbench ();
 	 $stop();
   end
 endmodule
-
