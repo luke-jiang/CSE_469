@@ -74,17 +74,17 @@ module Execute (
 
   // Forwarding control Db
   always_comb begin
-  	if (control === 13'b010X0010XX010) begin
-  		if (EX_MEM_Rd == in[`Rd+:16] && EX_MEM_Rd != 16'd31) begin
-  			FwdDb_cntrl = 2'd2;
-  		end else if (MEM_WR_Rd == in[`Rd+:16] && MEM_WR_Rd != 16'd31) begin
-  			FwdDb_cntrl = 2'd1;
-  		end else begin
-  			FwdDb_cntrl = 2'd0;
-  		end
-  	end else begin
-  		FwdDb_cntrl = 2'd0;
-  	end
+    if (control === 13'b010X0010XX010) begin
+      if (EX_MEM_Rd == in[`Rd+:16] && EX_MEM_Rd != 16'd31) begin
+        FwdDb_cntrl = 2'd2;
+      end else if (MEM_WR_Rd == in[`Rd+:16] && MEM_WR_Rd != 16'd31) begin
+        FwdDb_cntrl = 2'd1;
+      end else begin
+        FwdDb_cntrl = 2'd0;
+      end
+    end else begin
+      FwdDb_cntrl = 2'd0;
+    end
   end
 
   mux64x4_1 FwdAMux (
