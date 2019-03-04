@@ -23,7 +23,6 @@ module Execute (
   logic [12:0] control;
   logic        negativeF, zeroF, overflowF, carry_outF;
 
-
   assign out[`Rd+:16]         = in[`Rd+:16];
   assign out[`cntrl+:16]      = in[`cntrl+:16];
   assign control              = in[`cntrl+:13];
@@ -39,9 +38,13 @@ module Execute (
 
   // Forwarding control A
   always_comb begin
-    if (EX_MEM_RegWrite == 1 && EX_MEM_Rd == in[`Rn+:16] && EX_MEM_Rd != 16'd31) begin
+    if (EX_MEM_RegWrite == 1
+        && EX_MEM_Rd == in[`Rn+:16]
+        && EX_MEM_Rd != 16'd31) begin
       FwdA_cntrl = 2'd2;
-    end else if (MEM_WR_RegWrite == 1 && MEM_WR_Rd == in[`Rn+:16] && MEM_WR_Rd != 16'd31) begin
+    end else if (MEM_WR_RegWrite == 1
+                 && MEM_WR_Rd == in[`Rn+:16]
+                 && MEM_WR_Rd != 16'd31) begin
       FwdA_cntrl = 2'd1;
     end else begin
       FwdA_cntrl = 2'd0;
@@ -51,18 +54,18 @@ module Execute (
   // Forwarding control B
   always_comb begin
 	  if (control === 13'b010X00010010X
-     || control === 13'b010X00011001X
-     || control === 13'bXXXX000101XXX
-     || control === 13'b010X0010XX010) begin
+        || control === 13'b010X00011001X
+        || control === 13'bXXXX000101XXX
+        || control === 13'b010X0010XX010) begin
 	  // no Rm: ADDI, LDUR, LSR, STUR
 	    FwdB_cntrl = 2'd0;
     end else if (EX_MEM_RegWrite == 1
-              && EX_MEM_Rd == in[`Rm+:16]
-              && EX_MEM_Rd != 16'd31) begin
+                 && EX_MEM_Rd == in[`Rm+:16]
+                 && EX_MEM_Rd != 16'd31) begin
       FwdB_cntrl = 2'd2;
     end else if (MEM_WR_RegWrite == 1
-              && MEM_WR_Rd == in[`Rm+:16]
-              && MEM_WR_Rd != 16'd31) begin
+                 && MEM_WR_Rd == in[`Rm+:16]
+                 && MEM_WR_Rd != 16'd31) begin
       FwdB_cntrl = 2'd1;
     end else begin
       FwdB_cntrl = 2'd0;
