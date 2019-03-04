@@ -1,7 +1,9 @@
 // CSE 469
 // Lab 4
 // Chen Bai, Luke Jiang
-//
+// 30/11/2018
+
+// Top module for pipelined CPU
 
 `include "header.svh"
 `timescale 1ns/10ps

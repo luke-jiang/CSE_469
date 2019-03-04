@@ -1,4 +1,9 @@
+// CSE 469
+// Lab 4
+// Chen Bai, Luke Jiang
+// 30/11/2018
 
+// Register array of length 400, used as pipeline buffer registers.
 
 `timescale 1ps / 1ps
 

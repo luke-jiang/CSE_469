@@ -1,7 +1,9 @@
 // CSE 469
 // Lab 4
 // Chen Bai, Luke Jiang
-// 
+// 30/11/2018
+
+// Pipelined CPU control logic, convert instructions to control signals.
 
 `timescale 1ps / 1ps
 

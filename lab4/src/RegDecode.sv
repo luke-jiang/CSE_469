@@ -1,3 +1,10 @@
+// CSE 469
+// Lab 4
+// Chen Bai, Luke Jiang
+// 30/11/2018
+
+// Regfile/Decode stage.
+
 `include "header.svh"
 `timescale 1ns/10ps
 
@@ -42,7 +49,7 @@ module RegDecode (
   logic [63:0] FwdDbMux_out;
   logic [1:0] FwdDb_cntrl;
   logic [63:0] address;
-  
+
   // Assign control logic
   controlLogic theControlLogic (.cntrl, .in(in[`opCode+:11]), .zeroF, .lessThanF);
 
