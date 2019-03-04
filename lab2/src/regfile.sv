@@ -22,14 +22,24 @@ module regfile (ReadData1, ReadData2, WriteData, ReadRegister1, ReadRegister2,
 
   // decoder
   logic [31:0] decoderOut;
-  decoder5x32 decoder (.out(decoderOut), .in(WriteRegister), .en(RegWrite));
+  decoder5x32 decoder (
+    .out(decoderOut),
+    .in(WriteRegister),
+    .en(RegWrite)
+  );
 
   // register array
   logic [31:0][63:0] registerOut;
   genvar i;
   generate
     for (i = 0; i < 31; i++) begin : eachRegister
-      register registers (.out(registerOut[i]), .in(WriteData), .reset(0), .clk, .en(decoderOut[i]));
+      register registers (
+        .out      (registerOut[i]),
+        .in       (WriteData),
+        .reset    (0),
+        .en       (decoderOut[i]),
+        .clk
+      );
     end
   endgenerate
   assign registerOut[31] = 64'd0;
@@ -44,7 +54,7 @@ module regfile (ReadData1, ReadData2, WriteData, ReadRegister1, ReadRegister2,
       end
     end
   end
-  
+
   // mux
   genvar h;
   generate
@@ -57,7 +67,7 @@ endmodule
 
 
 
-module regfile_testbench ();
+module regstim ();
 
 	parameter ClockDelay = 5000;
 

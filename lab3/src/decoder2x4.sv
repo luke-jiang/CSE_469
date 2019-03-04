@@ -14,9 +14,9 @@ module decoder2x4 (out, in, en);
 
   logic [1:0] tmp;
 
-  decoder1x2 dec0 (.out(tmp), .in(in[1]), .en);
+  decoder1x2 dec0 (.out(tmp),      .in(in[1]), .en);
   decoder1x2 dec1 (.out(out[3:2]), .in(in[0]), .en(tmp[1]));
-  decoder1x2 dec2 (.out(out[1:0]), .in(in[0]), .en(tmp[0]));  
+  decoder1x2 dec2 (.out(out[1:0]), .in(in[0]), .en(tmp[0]));
 endmodule
 
 module decoder2x4_testbench();

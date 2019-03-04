@@ -15,12 +15,27 @@ module alu (A, B, cntrl, result, negative, zero, overflow, carry_out);
 
   logic [63:0] carry;
 
-  bitALU alu0 (.result(result[0]), .carry_out(carry[0]), .A(A[0]), .B(B[0]), .cin(cntrl[0]), .cntrl);
+  bitALU alu0 (
+    .result         (result[0]),
+    .carry_out      (carry[0]),
+    .A              (A[0]),
+    .B              (B[0]),
+    .cin            (cntrl[0]),
+    .cntrl
+  );
+
 
   genvar i;
   generate
     for(i = 1; i < 64; i++) begin : eachalu
-      bitALU alus (.result(result[i]), .carry_out(carry[i]), .A(A[i]), .B(B[i]), .cin(carry[i-1]), .cntrl);
+      bitALU alus (
+        .result     (result[i]),
+        .carry_out  (carry[i]),
+        .A          (A[i]),
+        .B          (B[i]),
+        .cin        (carry[i-1]),
+        .cntrl
+      );
     end
   endgenerate
 
@@ -134,7 +149,7 @@ module alustim();
 		A = 64'h0000000000000003; B = ~(64'hFFFFFFFFFFFFFFFD) + 64'h1;
 		#(delay);
 		assert(result == 64'h0 && carry_out == 1 && overflow == 0 && negative == 0 && zero == 1);
-		
+
 		// will never happen
 		/*$display("%t testing subtraction: zero, overflow", $time);
 		cntrl = ALU_SUBTRACT;

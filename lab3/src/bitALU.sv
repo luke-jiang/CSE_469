@@ -1,11 +1,11 @@
 // CSE 469
-// Lab 3
+// Lab 2
 // Chen Bai, Luke Jiang
-// 11/08/2018
+// 10/26/2018
 
-// 1-bit ALU 
+// Bitwise ALU, used for 64-bit ALU top module.
 
-`timescale 1ps / 1ps
+`timescale 1ps/1ps
 
 module bitALU (result, carry_out, A, B, cin, cntrl);
   output logic result, carry_out;
@@ -19,9 +19,17 @@ module bitALU (result, carry_out, A, B, cin, cntrl);
   assign resultMIn[3] = resultMIn[2];
   assign resultMIn[7] = 64'b0;
 
-  fullAdderSel faSel1 (.result(resultMIn[2]), .carry_out, .cin, .A, .B, .sel(cntrl[0]));
+  fullAdderSel faSel1 (
+    .result     (resultMIn[2]),
+    .carry_out,
+    .cin,
+    .A,
+    .B,
+    .sel        (cntrl[0])
+  );
+
   and #50 AND (resultMIn[4], A, B);
-  or #50 OR (resultMIn[5], A, B);
+  or  #50 OR  (resultMIn[5], A, B);
   xor #50 XOR (resultMIn[6], A, B);
 
   mux8_1 mux (.out(result), .d(resultMIn), .sel(cntrl));

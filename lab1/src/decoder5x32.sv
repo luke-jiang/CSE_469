@@ -14,9 +14,9 @@ module decoder5x32 (out, in, en);
 
   logic [1:0] tmp;
 
-  decoder1x2 dec0 (.out(tmp), .in(in[4]), .en);
+  decoder1x2  dec0 (.out(tmp),        .in(in[4]),   .en);
   decoder4x16 dec1 (.out(out[31:16]), .in(in[3:0]), .en(tmp[1]));
-  decoder4x16 dec2 (.out(out[15:0]), .in(in[3:0]), .en(tmp[0]));
+  decoder4x16 dec2 (.out(out[15:0]),  .in(in[3:0]), .en(tmp[0]));
 endmodule
 
 module decoder5x32_testbench ();
