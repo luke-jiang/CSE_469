@@ -53,12 +53,12 @@ module Execute (
 
   // Forwarding control B
   always_comb begin
-	  if (control === 13'b010X00010010X
+    if (control === 13'b010X00010010X
         || control === 13'b010X00011001X
         || control === 13'bXXXX000101XXX
         || control === 13'b010X0010XX010) begin
-	  // no Rm: ADDI, LDUR, LSR, STUR
-	    FwdB_cntrl = 2'd0;
+      // no Rm: ADDI, LDUR, LSR, STUR
+      FwdB_cntrl = 2'd0;
     end else if (EX_MEM_RegWrite == 1
                  && EX_MEM_Rd == in[`Rm+:16]
                  && EX_MEM_Rd != 16'd31) begin
