@@ -1,6 +1,9 @@
+// CSE 469
+// Lab 2
+// Chen Bai, Luke Jiang
+// 10/26/2018
 
 // Check if input a == 0.
-`timescale 1ps / 1ps
 
 module ifZero64 (out, a);
   output logic out;

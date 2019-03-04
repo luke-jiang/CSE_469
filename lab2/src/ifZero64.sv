@@ -15,11 +15,11 @@ module ifZero64 (out, a);
   genvar i;
   generate
     for (i = 0; i < 64; i++) begin : eachOr
-      or OR (tmp[i+1], tmp[i], a[i]);
+      or #50 OR (tmp[i+1], tmp[i], a[i]);
     end
   endgenerate
 
-  not NOT (out, tmp[64]);
+  not #50 NOT (out, tmp[64]);
 endmodule
 
 module ifZero64_testbench ();
