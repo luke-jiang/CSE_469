@@ -24,7 +24,6 @@ module alu (A, B, cntrl, result, negative, zero, overflow, carry_out);
     .cntrl
   );
 
-
   genvar i;
   generate
     for(i = 1; i < 64; i++) begin : eachalu
@@ -43,6 +42,7 @@ module alu (A, B, cntrl, result, negative, zero, overflow, carry_out);
   assign carry_out = carry[63];
   xor #50 xor0 (overflow, carry[63], carry[62]);
   ifZero64 iz (zero, result);
+  
 endmodule
 
 
