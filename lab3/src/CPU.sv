@@ -1,7 +1,15 @@
+// CSE 469
+// Lab 3
+// Chen Bai, Luke Jiang
+// 11/08/2018
+
+// Top module for single-cycle CPU.
+
 `timescale 1ns/10ps
 
 module CPU (clk, reset);
 
+  // bit assignment in cntrl signal
   parameter Reg2Loc = 0;
   parameter ALUSrc0 = 1;
   parameter ALUSrc1 = 2;
@@ -15,6 +23,7 @@ module CPU (clk, reset);
   parameter ALUOp0 = 10;
   parameter ALUOp1 = 12;
 
+  // bit assignment in regfIn
   parameter negativeF = 3;
   parameter zeroF = 2;
   parameter overflowF = 1;
