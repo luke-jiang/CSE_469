@@ -41,7 +41,7 @@ module alu (A, B, cntrl, result, negative, zero, overflow, carry_out);
 
   assign negative = result[63];
   assign carry_out = carry[63];
-  xor xor0 (overflow, carry[63], carry[62]);
+  xor #50 xor0 (overflow, carry[63], carry[62]);
   ifZero64 iz (zero, result);
 endmodule
 
