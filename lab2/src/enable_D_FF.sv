@@ -8,8 +8,8 @@
 `timescale 1ps / 1ps
 
 module enable_D_FF (q, d, reset, clk, en);
-  output logic q;
-  input logic d, reset, clk, en;
+  output  logic q;
+  input   logic d, reset, clk, en;
 
   logic tmp;
   mux2_1 mux (.out(tmp), .d({d, q}), .sel(en));
