@@ -6,8 +6,8 @@
 // Check if input a == 0.
 
 module ifZero64 (out, a);
-  output logic out;
-  input logic [63:0] a;
+  output  logic        out;
+  input   logic [63:0] a;
 
   logic [64:0] tmp;
   assign tmp[0] = 0;

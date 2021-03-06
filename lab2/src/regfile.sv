@@ -107,7 +107,7 @@ module regstim ();
 		RegWrite <= 1;
 		@(posedge clk);
 
-		// Write a value into each  register.
+		// Write a value into each register.
 		$display("%t Writing pattern to all registers.", $time);
 		for (i=0; i<31; i=i+1) begin
 			RegWrite <= 0;

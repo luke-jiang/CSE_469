@@ -23,19 +23,19 @@ module enable_D_FF_testbench ();
   enable_D_FF dut (.q, .d, .reset, .clk, .en);
 
   parameter CLOCK_PERIOD = 100;
-	initial begin
-		clk <= 0;
-		forever #(CLOCK_PERIOD/2) clk <= ~clk;
-	end
+  initial begin
+    clk <= 0;
+    forever #(CLOCK_PERIOD/2) clk <= ~clk;
+  end
 
   initial begin
     @(posedge clk);
     en <= 1; d <= 1; @(posedge clk);
     en <= 0; @(posedge clk);
     reset <= 1; @(posedge clk);
-	 reset <= 0; @(posedge clk);
+    reset <= 0; @(posedge clk);
     en <= 1; d <= 1; @(posedge clk);
-	 d <= 0; @(posedge clk);
+    d <= 0; @(posedge clk);
     en <= 0; @(posedge clk);
     @(posedge clk);
     $stop();

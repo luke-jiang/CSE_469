@@ -8,9 +8,9 @@
 `timescale 1ps/1ps
 
 module bitALU (result, carry_out, A, B, cin, cntrl);
-  output logic result, carry_out;
-  input logic A, B, cin;
-  input logic [2:0] cntrl;
+  output  logic       result, carry_out;
+  input   logic       A, B, cin;
+  input   logic [2:0] cntrl;
 
   logic [7:0] resultMIn;
 
@@ -36,8 +36,8 @@ module bitALU (result, carry_out, A, B, cin, cntrl);
 endmodule
 
 module bitALU_testbench ();
-  logic result, carry_out;
-  logic A, B, cin;
+  logic       result, carry_out;
+  logic       A, B, cin;
   logic [2:0] cntrl;
 
   bitALU dut (.result, .carry_out, .A, .B, .cin, .cntrl);

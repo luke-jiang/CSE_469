@@ -8,8 +8,8 @@
 `timescale 1ps / 1ps
 
 module fullAdder (result, carry_out, cin, A, B);
-  output logic result, carry_out;
-  input logic cin, A, B;
+  output  logic   result, carry_out;
+  input   logic   cin, A, B;
 
   xor #50 XOR (result, A, B, cin);
 

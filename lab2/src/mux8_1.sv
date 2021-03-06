@@ -6,9 +6,9 @@
 // This module creates a 8-to-1 mux.
 
 module mux8_1(out, d, sel);
-  output logic out;
-  input logic [7:0] d;
-  input logic [2:0] sel;
+  output  logic       out;
+  input   logic [7:0] d;
+  input   logic [2:0] sel;
 
   logic [1:0] q;
 

@@ -8,8 +8,8 @@
 `timescale 1ps / 1ps
 
 module fullAdderSel (result, carry_out, cin, A, B, sel);
-  output logic result, carry_out;
-  input logic cin, A, B, sel;
+  output  logic result, carry_out;
+  input   logic cin, A, B, sel;
 
   logic xor_out;
 
