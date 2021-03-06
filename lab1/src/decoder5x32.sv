@@ -8,9 +8,9 @@
 `timescale 1ps / 1ps
 
 module decoder5x32 (out, in, en);
-  output logic [31:0] out;
-  input logic [4:0] in;
-  input logic en;
+  output  logic [31:0]  out;
+  input   logic [4:0]   in;
+  input   logic         en;
 
   logic [1:0] tmp;
 
@@ -20,9 +20,9 @@ module decoder5x32 (out, in, en);
 endmodule
 
 module decoder5x32_testbench ();
-  logic [31:0] out;
-  logic [4:0] in;
-  logic en;
+  logic [31:0]  out;
+  logic [4:0]   in;
+  logic         en;
 
   decoder5x32 dut (.out, .in, .en);
   integer i;

@@ -8,8 +8,9 @@
 `timescale 1ps / 1ps
 
 module decoder1x2 (out, in, en);
-  output logic [1:0] out;
-  input logic in, en;
+  output  logic [1:0]   out;
+  input   logic         in, en;
+  
   logic notOut;
 
   and #50 AND1 (out[1], en, in);
@@ -18,8 +19,8 @@ module decoder1x2 (out, in, en);
 endmodule
 
 module decoder1x2_testbench();
-  logic [1:0] out;
-  logic in, en;
+  logic [1:0]   out;
+  logic         in, en;
 
   decoder1x2 dut (.out, .in, .en);
 

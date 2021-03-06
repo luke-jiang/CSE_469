@@ -8,9 +8,9 @@
 `timescale 1ps / 1ps
 
 module mux32_1 (out, d, sel);
-  output logic out;
-  input logic [31:0] d;
-  input logic [4:0] sel;
+  output  logic         out;
+  input   logic [31:0]  d;
+  input   logic [4:0]   sel;
 
   logic [1:0] tmp;
 
@@ -20,9 +20,9 @@ module mux32_1 (out, d, sel);
 endmodule
 
 module mux32_1_testbench ();
-  logic out;
-  logic [31:0] d;
-  logic [4:0] sel;
+  logic         out;
+  logic [31:0]  d;
+  logic [4:0]   sel;
 
   mux32_1 dut (.out, .d, .sel);
 
