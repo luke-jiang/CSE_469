@@ -8,9 +8,9 @@
 `timescale 1ps / 1ps
 
 module decoder4x16 (out, in, en);
-  output logic [15:0] out;
-  input logic [3:0] in;
-  input logic en;
+  output  logic [15:0]  out;
+  input   logic [3:0]   in;
+  input   logic         en;
 
   logic [3:0] tmp;
 
@@ -25,9 +25,9 @@ module decoder4x16 (out, in, en);
 endmodule
 
 module decoder4x16_testbench();
-  logic [15:0] out;
-  logic [3:0] in;
-  logic en;
+  logic [15:0]  out;
+  logic [3:0]   in;
+  logic         en;
 
   decoder4x16 dut (.out, .in, .en);
   

@@ -8,9 +8,9 @@
 `timescale 1ps / 1ps
 
 module PC (out, in, reset, clk);
-  input logic [63:0] in;
-  input logic reset, clk;
-  output logic [63:0] out;
+  input   logic [63:0]  in;
+  input   logic         reset, clk;
+  output  logic [63:0]  out;
 
   genvar i;
   generate
@@ -22,39 +22,39 @@ endmodule // pc
 
 
 module PC_testbench ();
-  logic [63:0] in;
-  logic reset, clk;
-  logic [63:0] out;
+  logic [63:0]  in;
+  logic         reset, clk;
+  logic [63:0]  out;
 
   PC dut (.out, .in, .reset, .clk);
 
   parameter CLOCK_PERIOD = 100;
-	initial begin
-		clk <= 0;
-		forever #(CLOCK_PERIOD/2) clk <= ~clk;
-	end
+  initial begin
+    clk <= 0;
+    forever #(CLOCK_PERIOD/2) clk <= ~clk;
+  end
 
   initial begin
-	 reset <= 1;
+    reset <= 1;
     @(posedge clk);
-	 reset <= 0;
-	 @(posedge clk);
+    reset <= 0;
+    @(posedge clk);
     in <= $random(); @(posedge clk); 
-	 @(posedge clk); assert(out == in);
+    @(posedge clk); assert(out == in);
     in <= $random(); @(posedge clk); //assert(out == in);
-	 @(posedge clk); assert(out == in);
+    @(posedge clk); assert(out == in);
     in <= $random(); @(posedge clk); //assert(out == in);
-	 @(posedge clk); assert(out == in);
+    @(posedge clk); assert(out == in);
     in <= $random(); @(posedge clk); //assert(out == in);
-	 @(posedge clk); assert(out == in);
+    @(posedge clk); assert(out == in);
     in <= $random(); @(posedge clk); //assert(out == in);
-	 @(posedge clk); assert(out == in);
+    @(posedge clk); assert(out == in);
     in <= $random(); @(posedge clk); //assert(out == in);
-	 @(posedge clk); assert(out == in);
+    @(posedge clk); assert(out == in);
     @(posedge clk);
-	 @(posedge clk);
-	 @(posedge clk);
-	 @(posedge clk);
+    @(posedge clk);
+    @(posedge clk);
+    @(posedge clk);
     $stop();
   end
 endmodule

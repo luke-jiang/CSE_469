@@ -9,12 +9,12 @@
 `timescale 1ps / 1ps
 
 module fullAdderSel (result, carry_out, cin, A, B, sel);
-  output logic result, carry_out;
-  input logic cin, A, B, sel;
+  output  logic result, carry_out;
+  input   logic cin, A, B, sel;
 
   logic xor_out;
 
-  xor #50 (xor_out, B, sel);
+  xor #50 (xor_out, B, sel);  // Select B or ~B
   fullAdder fa (.result, .carry_out, .cin, .A, .B(xor_out));
 endmodule
 

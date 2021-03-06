@@ -8,9 +8,9 @@
 `timescale 1ps / 1ps
 
 module decoder2x4 (out, in, en);
-  output logic [3:0] out;
-  input logic [1:0] in;
-  input logic en;
+  output  logic [3:0] out;
+  input   logic [1:0] in;
+  input   logic       en;
 
   logic [1:0] tmp;
 
@@ -20,9 +20,9 @@ module decoder2x4 (out, in, en);
 endmodule
 
 module decoder2x4_testbench();
-  logic [3:0] out;
-  logic [1:0] in;
-  logic en;
+  logic [3:0]   out;
+  logic [1:0]   in;
+  logic         en;
 
   decoder2x4 dut (.out, .in, .en);
   integer i;

@@ -10,10 +10,10 @@
 `timescale 1ps / 1ps
 
 module regflag (out, lessThanF, in, reset, clk, en);
-  input logic [3:0] in;
-  input logic reset, clk, en;
-  output logic [3:0] out;
-  output logic lessThanF;
+  input   logic [3:0]   in;
+  input   logic         reset, clk, en;
+  output  logic [3:0]   out;
+  output  logic         lessThanF;
 
   genvar i;
   generate
@@ -27,17 +27,17 @@ endmodule
 
 module regflag_testbench ();
   logic [3:0] in;
-  logic reset, clk, en;
+  logic       reset, clk, en;
   logic [3:0] out;
-  logic lessThanF;
+  logic       lessThanF;
 
   regflag dut (.out, .lessThanF, .in, .reset, .clk, .en);
 
   parameter ClockDelay = 5000;
   initial begin // Set up the clock
-		clk <= 0;
-		forever #(ClockDelay/2) clk <= ~clk;
-	end
+    clk <= 0;
+    forever #(ClockDelay/2) clk <= ~clk;
+  end
 
   initial begin
     in <= 4'b0101; en <= 1; @(posedge clk);
@@ -46,7 +46,7 @@ module regflag_testbench ();
     in <= 4'b0101; en <= 0; @(posedge clk);
     in <= 4'b1111; @(posedge clk);
     in <= 4'b1100; @(posedge clk);
-	 @(posedge clk);
-	 $stop();
+    @(posedge clk);
+    $stop();
   end
 endmodule

@@ -109,7 +109,7 @@ module CPU (clk, reset);
       11'b10001010000: cntrl = 13'b100X010100001; // AND
       11'b11001010000: cntrl = 13'b110X010100001; // EOR
       11'b11010011010: cntrl = 13'bXXXX000101XXX; // LSR
-		default: cntrl = 13'bX;
+    default: cntrl = 13'bX;
     endcase
   end
 
@@ -236,9 +236,9 @@ module CPU_testbench ();
   CPU dut (.clk, .reset);
 
   initial begin // Set up the clock
-		clk <= 0;
-		forever #(ClockDelay/2) clk <= ~clk;
-	end
+    clk <= 0;
+    forever #(ClockDelay/2) clk <= ~clk;
+  end
 
   integer i;
 
@@ -248,6 +248,6 @@ module CPU_testbench ();
     for (i = 0; i < 2000; i++) begin
       @(posedge clk);
     end
-	 $stop();
+    $stop();
   end
 endmodule

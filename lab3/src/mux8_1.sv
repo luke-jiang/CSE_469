@@ -7,9 +7,9 @@
 
 
 module mux8_1(out, d, sel);
-  output logic out;
-  input logic [7:0] d;
-  input logic [2:0] sel;
+  output  logic       out;
+  input   logic [7:0] d;
+  input   logic [2:0] sel;
 
   logic [1:0] q;
 
@@ -17,4 +17,3 @@ module mux8_1(out, d, sel);
   mux4_1 mux1 (q[1], d[7:4], sel[1:0]); 
   mux2_1 mux2 (out, q, sel[2]);
 endmodule
-
