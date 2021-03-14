@@ -8,9 +8,9 @@
 `timescale 1ps / 1ps
 
 module controlLogic (
-  output logic [12:0] cntrl,
-  input logic [10:0] in,
-  input logic zeroF, lessThanF
+  output  logic [12:0]  cntrl,
+  input   logic [10:0]  in,
+  input   logic         zeroF, lessThanF
   );
 
   always_comb begin
@@ -38,7 +38,7 @@ module controlLogic (
       11'b10001010000: cntrl = 13'b100X010100001; // AND
       11'b11001010000: cntrl = 13'b110X010100001; // EOR
       11'b11010011010: cntrl = 13'bXXXX000101XXX; // LSR
-		//default: cntrl = 13'b0;
+    //default: cntrl = 13'b0;
     endcase
   end
 endmodule

@@ -8,9 +8,9 @@
 `timescale 1ps / 1ps
 
 module mux64x4_1 (out, d, sel);
-  output logic [63:0] out;
-  input logic [255:0] d;
-  input logic [1:0] sel;
+  output  logic [63:0]  out;
+  input   logic [255:0] d;
+  input   logic [1:0]   sel;
 
   genvar i;
   generate
@@ -21,9 +21,9 @@ module mux64x4_1 (out, d, sel);
 endmodule
 
 module mux64x4_1_testbench ();
-  logic [63:0] out;
+  logic [63:0]  out;
   logic [255:0] d;
-  logic [1:0] sel;
+  logic [1:0]   sel;
 
   mux64x4_1 dut (.out, .d, .sel);
 

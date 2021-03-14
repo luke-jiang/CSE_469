@@ -8,9 +8,9 @@
 `timescale 1ps/1ps
 
 module bitALU (result, carry_out, A, B, cin, cntrl);
-  output logic result, carry_out;
-  input logic A, B, cin;
-  input logic [2:0] cntrl;
+  output  logic       result, carry_out;
+  input   logic       A, B, cin;
+  input   logic [2:0] cntrl;
 
   logic [7:0] resultMIn;
 

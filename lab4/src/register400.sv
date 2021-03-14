@@ -8,9 +8,9 @@
 `timescale 1ps / 1ps
 
 module register400 (out, in, reset, clk, en);
-  output logic [399:0] out;
-  input logic [399:0] in;
-  input logic reset, clk, en;
+  output  logic [399:0] out;
+  input   logic [399:0] in;
+  input   logic         reset, clk, en;
 
   genvar i;
   generate

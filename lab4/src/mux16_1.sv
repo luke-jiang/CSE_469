@@ -8,9 +8,9 @@
 `timescale 1ps / 1ps
 
 module mux16_1 (out, d, sel);
-  output logic out;
-  input logic [15:0] d;
-  input logic [3:0] sel;
+  output  logic         out;
+  input   logic [15:0]  d;
+  input   logic [3:0]   sel;
 
   logic [3:0] tmp;
 
@@ -25,9 +25,9 @@ module mux16_1 (out, d, sel);
 endmodule
 
 module mux16_1_testbench ();
-  logic out;
-  logic [15:0] d;
-  logic [3:0] sel;
+  logic         out;
+  logic [15:0]  d;
+  logic [3:0]   sel;
 
   mux16_1 dut (.out, .d, .sel);
 
@@ -43,3 +43,4 @@ module mux16_1_testbench ();
     end
   end
 endmodule
+

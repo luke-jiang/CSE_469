@@ -9,9 +9,9 @@
 `timescale 1ps / 1ps
 
 module mux2_1 (out, d, sel);
-  output logic out;
-  input logic [1:0] d;
-  input logic sel;
+  output  logic       out;
+  input   logic [1:0] d;
+  input   logic       sel;
 
   logic sel_neg;
   not #50 NOT (sel_neg, sel);
@@ -24,9 +24,9 @@ module mux2_1 (out, d, sel);
 endmodule
 
 module mux2_1_testbench();
-  logic out;
-  logic [1:0] d;
-  logic sel;
+  logic         out;
+  logic [1:0]   d;
+  logic         sel;
 
   mux2_1 dut (.out, .d, .sel);
 

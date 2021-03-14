@@ -9,9 +9,9 @@
 `timescale 1ps / 1ps
 
 module register (out, in, reset, clk, en);
-  output logic [63:0] out;
-  input logic [63:0] in;
-  input logic reset, clk, en;
+  output  logic [63:0] out;
+  input   logic [63:0] in;
+  input   logic        reset, clk, en;
 
   genvar i;
   generate
@@ -29,10 +29,10 @@ module register_testbench ();
   register dut (.out, .in, .reset, .clk, .en);
 
   parameter CLOCK_PERIOD = 100;
-	initial begin
-		clk <= 0;
-		forever #(CLOCK_PERIOD/2) clk <= ~clk;
-	end
+  initial begin
+    clk <= 0;
+    forever #(CLOCK_PERIOD/2) clk <= ~clk;
+  end
 
   initial begin
     @(posedge clk);

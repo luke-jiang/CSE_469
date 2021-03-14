@@ -8,9 +8,9 @@
 `timescale 1ps / 1ps
 
 module mux5x2_1 (out, d, sel);
-  output logic [4:0] out;
-  input logic [9:0] d;
-  input logic sel;
+  output  logic [4:0] out;
+  input   logic [9:0] d;
+  input   logic       sel;
 
   genvar i;
   generate

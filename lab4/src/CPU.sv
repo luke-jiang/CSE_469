@@ -51,16 +51,16 @@ module CPU (
     .in                     (IF_REout),
     .WriteRegister          (MEM_WRout[`Rd+:5]),
     .WriteData              (MEM_WRout[`WriteData+:64]),
-  	.RegWrite               (MEM_WRcntrl[`RegWrite]),
-  	.lessThanF              (flagMux_out),
-  	.EX_MEM_Rd              (EX_MEMin[`Rd+:16]),
+    .RegWrite               (MEM_WRcntrl[`RegWrite]),
+    .lessThanF              (flagMux_out),
+    .EX_MEM_Rd              (EX_MEMin[`Rd+:16]),
     .MEM_WR_Rd              (MEM_WRin[`Rd+:16]),
-  	.EX_MEM_RegWrite        (EX_MEMcntrl[`RegWrite]),
-  	.MEM_WR_RegWrite        (MEM_WRcntrl[`RegWrite]),
-  	.EX_MEM_Data            (EX_MEMin[`ALUout+:64]),
+    .EX_MEM_RegWrite        (EX_MEMcntrl[`RegWrite]),
+    .MEM_WR_RegWrite        (MEM_WRcntrl[`RegWrite]),
+    .EX_MEM_Data            (EX_MEMin[`ALUout+:64]),
     .MEM_WR_Data            (MEM_WRin[`WriteData+:64]),
     .clk                    (iclk),
-  	.reset
+    .reset
   );
   register400 RE_EX (
     .out                    (RE_EXout),
@@ -134,9 +134,9 @@ module CPU_testbench();
   CPU dut (.clk, .reset);
 
   initial begin // Set up the clock
-		clk <= 0;
-		forever #(ClockDelay/2) clk <= ~clk;
-	end
+    clk <= 0;
+    forever #(ClockDelay/2) clk <= ~clk;
+  end
 
   integer i;
 
@@ -146,6 +146,6 @@ module CPU_testbench();
     for (i = 0; i < 1500; i++) begin
       @(posedge clk);
     end
-	 $stop();
+    $stop();
   end
 endmodule

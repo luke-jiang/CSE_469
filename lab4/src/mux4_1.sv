@@ -8,9 +8,9 @@
 `timescale 1ps / 1ps
 
 module mux4_1 (out, d, sel);
-  output logic out;
-  input logic [3:0] d;
-  input logic [1:0] sel;
+  output  logic       out;
+  input   logic [3:0] d;
+  input   logic [1:0] sel;
 
   logic [1:0] q;
   
@@ -20,9 +20,9 @@ module mux4_1 (out, d, sel);
 endmodule
 
 module mux4_1_testbench ();
-  logic out;
-  logic [3:0] d;
-  logic [1:0] sel;
+  logic         out;
+  logic [3:0]   d;
+  logic [1:0]   sel;
 
   mux4_1 dut (.out, .d, .sel);
 
